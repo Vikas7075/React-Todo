@@ -89,15 +89,16 @@ const Home = () => {
 
     return (
         <div className="container">
-            <div className="login">
-                <section>
-                    <form onSubmit={submitHandler}>
+            <div className="login flex justify-center items-center ">
+                <section className="bg-white p-8 rounded-md shadow-md w-96">
+                    <form onSubmit={submitHandler} className="flex flex-col space-y-4">
                         <input
                             type="text"
                             placeholder="Title"
                             required
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
+                            className="border-2 p-3 rounded focus:outline-none focus:border-blue-500"
                         />
                         <input
                             type="text"
@@ -105,14 +106,20 @@ const Home = () => {
                             required
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
+                            className="border-2 p-3 rounded focus:outline-none focus:border-blue-500"
                         />
 
-                        <button disabled={loading} type="submit">
-                            Add Task
+                        <button
+                            disabled={loading}
+                            type="submit"
+                            className={`bg-blue-500 text-white px-4 py-2 rounded transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'}`}
+                        >
+                            {loading ? 'Adding Task...' : 'Add Task'}
                         </button>
                     </form>
                 </section>
             </div>
+
 
             <section className="todosContainer">
                 {tasks.map((i) => (

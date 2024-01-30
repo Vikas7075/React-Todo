@@ -1,20 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Context } from '../main';
 import Loader from '../components/Loader';
 
-
 function Profile() {
-
-    const { isAuthenticated, user, loading, } = useContext(Context);
-    console.log(user);
+    const { isAuthenticated, user, loading } = useContext(Context);
 
     return (
-        loading ? <Loader /> : (
-            <div style={{ background: 'orange', margin: '50px', padding: '20px' }}>
-                <h1 style={{ fontFamily: 'monospace', borderBottom: '2px solid red' }}>{user?.name}</h1>
-                <p style={{ fontFamily: 'cursive', marginLeft: '10px', borderBottom: '2px solid black' }}>{user.email}</p>
-            </div>)
-    )
+        loading ? (
+            <Loader />
+        ) : (
+            <div className="bg-orange-200 m-10 p-8">
+                <h1 className="font-mono border-b-2 border-red-500">{user?.name}</h1>
+                <p className="font-serif ml-2 border-b-2 border-black">{user.email}</p>
+            </div>
+        )
+    );
 }
 
-export default Profile
+export default Profile;

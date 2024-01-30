@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import './styles/app.scss'
+import './index.css'
 
 export const server = "https://todosapp-pik9.onrender.com/api/v1";
 
